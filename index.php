@@ -1,3 +1,19 @@
+<?php
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "web2";
+
+$conn = mysqli_connect($server,$username,$password,$database);
+if($conn)
+{
+    echo "Connection Success.";
+}
+else
+{
+    echo "Error Occured";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +72,7 @@
         <div class="row pt-5">
             <h1>Contact Us</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime rem quasi esse, laudantium, molestiae consectetur minus quibusdam vitae assumenda perspiciatis officia quia deleniti, omnis natus?</p>
-            <form action="">       
+            <form action="index.php" method="POST">       
                <div class="row">
                 <div class="mb-3 col-lg-6">
                     <label for="firstname" class="form-label">First Name</label>
@@ -102,4 +118,4 @@
     <!-- <script src="bootstrap-5.2.0-beta1-dist/bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="bootstrap-5.2.0-beta1-dist/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
 </body>
-</html>
+</html> -->
