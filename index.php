@@ -22,8 +22,10 @@ if( isset($_POST['submitButton']) )
        }
        else
        {
+       else{
            echo "Error Occured";
        }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -37,7 +39,7 @@ if( isset($_POST['submitButton']) )
 </head>
 <body>
     <!-- navbar starts here -->
-    <nav class="navbar navbar-expand-lg bg-light fixed-top shadow">
+    <!-- <nav class="navbar navbar-expand-lg bg-light fixed-top shadow">
         <div class="container-fluid">
             <a href="#" class="navbar-brand">Zalego Academy</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#menus">
@@ -54,6 +56,7 @@ if( isset($_POST['submitButton']) )
         </div>      
     </nav>
     <!--navbar ends here -->
+    navbar ends here -->
     <main class="p-5 md-4 bg-light"><br><br>
         <h1>Welcome, Sir Vanilstelrooy Obare</h1>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deleniti dolores esse inventore nostrum ut quasi iste culpa! <br><br>
