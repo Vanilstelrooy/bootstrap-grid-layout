@@ -5,13 +5,25 @@ $password = "";
 $database = "web2";
 
 $conn = mysqli_connect($server,$username,$password,$database);
-if($conn)
+if( isset($_POST['submitButton']) )
 {
-    echo "Connection Success.";
-}
-else
-{
-    echo "Error Occured";
+    // 1.Fetch Form Data
+        $firstName = $_POST ['firstname'];
+       $lastName = $_POST ['lastname'];
+       $email = $_POST ['email'];
+       $phone = $_POST ['phonenumber'];
+       $message = $_POST ['message'];
+    // 2.Submit Form Data
+       $insertData = mysqli_query($conn, "INSERT INTO contactus(firstname,lastname,email,phonenumber,message)
+       VALUES('$firstName','$lastName','$email','$phone','$message')");
+       if($insertData)
+       {
+           echo "Data Submitted Successfully";
+       }
+       else
+       {
+           echo "Error Occured";
+       }
 }
 ?>
 <!DOCTYPE html>
@@ -34,14 +46,14 @@ else
             <div class="collapse navbar-collapse" id="menus">
                 <div class="navbar-nav">
                     <a href="#" class="nav-link active">Home</a>
-                    <a href="aboutus.html" class="nav-link">About Us</a>
-                    <a href="#" class="nav-link">Contact Us</a>
+                    <a href="aboutus.php" class="nav-link">About Us</a>
+                    <a href="enroll.php" class="nav-link">Register Now</a>
                     
                 </div>
             </div>
         </div>      
     </nav>
-    <!-- navbar ends here -->
+    <!--navbar ends here -->
     <main class="p-5 md-4 bg-light"><br><br>
         <h1>Welcome, Sir Vanilstelrooy Obare</h1>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deleniti dolores esse inventore nostrum ut quasi iste culpa! <br><br>
@@ -67,39 +79,39 @@ else
         </div>
 
     </div>
-     <!-- contact us starts here -->
+     <!-- Contact Us starts here -->
     <div class="container">
         <div class="row pt-5">
-            <h1>Contact Us</h1>
+            <h1>Register Now</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime rem quasi esse, laudantium, molestiae consectetur minus quibusdam vitae assumenda perspiciatis officia quia deleniti, omnis natus?</p>
             <form action="index.php" method="POST">       
-               <div class="row">
+              <div class="row">
                 <div class="mb-3 col-lg-6">
                     <label for="firstname" class="form-label">First Name</label>
-                    <input type="text" class="form-control" placeholder="Enter Your First Name">
+                    <input type="text" name="firstname" class="form-control" placeholder="Enter Your First Name">
                 </div>
                 <div class="mb-3 col-lg-6">
                     <label for="lastname" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" placeholder="Enter Your Last Name">
+                    <input type="text" name="lastname" class="form-control" placeholder="Enter Your Last Name">
                 </div>
                 <div class="row">
                     <div class="mb-3 col-lg-6 col-md-6">
                         <label for="phonenumber" class="form-label">Phone number</label>
-                        <input type="tel" class="form-control" placeholder="Enter Your Phone Number">
+                        <input type="tel" name="phonenumber" class="form-control" placeholder="Enter Your Phone Number">
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter Your Email">
+                        <input type="email" name="email" class="form-control" placeholder="Enter Your Email">
                     </div>
                    </div>
                </div>
                <div class="row">
                    <div class="mb-3 col-lg-12">
                     <label for="message" class="form-label">Enter Your Message</label>
-                    <textarea name="Enter your Message" id="" cols="30" rows="5"class="form-control" ></textarea>
+                    <textarea placeholder="Enter your Message" name="message" id="" cols="30" rows="5"  class="form-control" ></textarea>
                    </div>
                </div>
-               <button type="submit" class="btn btn-primary" >Send A Message</button>
+               <button type="submit"name="submitButton" class="btn btn-primary" >Send A Message</button>
             </form>
         </div>
          <!-- Contact Us Ends Here -->

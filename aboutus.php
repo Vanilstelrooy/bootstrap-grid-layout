@@ -1,3 +1,26 @@
+<?php
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "web2";
+
+$conn = mysqli_connect($server,$username,$password,$database);
+if( isset($_POST['submitButton'])  )
+{
+    $email = $_POST ['email'];
+    // submit data
+    $insertData = mysqli_query($conn,"INSERT INTO subscribers(email)VALUES('$email')");
+    if($insertData)
+    {
+        echo "Data Submitted Successfully";
+    }
+    else
+    {
+        echo "Error Occured";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +47,7 @@
                 </div>
             </div>
         </div>      
-    </nav>
+    </nav> 
     <!--navbar ends here -->
     <main class="p-5 md-4 bg-light"><br><br>
         <h1>About Us</h1>
@@ -77,13 +100,10 @@
         <div class="row">
             <p style="margin-left: 5px; margin-right:5px; text-align:center; font-size: x-large; padding-top: 25px; color:darkgrey;">Subscribe to get information,latest news about  <br> Zalego Academy</p>
         </div>
-        <form>
+        <form action="aboutus.php" method="POST">
             <div class="row ">
                 <div class="col-lg-6 padding-bottom:30px; ">
-                    <input type="email" class="form-control" placeholder="Your Email Address">
-                </div>
-                <div class="col-lg-6 padding-bottom:30px;">
-                    <button class="btn btn-primary">Subscribe</button>
+                    <input type="email" name="email" class="form-control" placeholder="Your Email Address">
                 </div>
             </div>
 
